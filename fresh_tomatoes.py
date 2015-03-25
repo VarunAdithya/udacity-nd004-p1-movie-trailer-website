@@ -14,6 +14,9 @@ main_page_head = '''
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
+        * {
+            outline: 1px solid red !important;
+        }
         body {
             padding-top: 80px;
         }
@@ -52,6 +55,44 @@ main_page_head = '''
             left: 0;
             top: 0;
             background-color: white;
+        }
+        .col-centered {
+            float: none;
+            margin: 0 auto;
+        }
+        h2 {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .key {
+            font-weight: bold;
+        }
+        .movie-plot {
+            height: 6em;
+            overflow: hidden;
+            text-align: justify;
+        }
+        .poster {
+            max-height: 324px;
+            max-width: 220px;
+        }
+        .rating-overlay {
+            position:relative;
+            top: -42px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+            height: 0;
+            opacity: 0.50;
+        }
+        .rating-overlay img {
+            display: block;
+            max-height: 32px;
+            background: white;
+        }
+        .row-movie-facts {
+            padding: 15px 0 15px;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -119,11 +160,31 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
+<div class="col-md-6 col-lg-4 movie-tile" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer" title="{movie_title}">
+    <div class="row">
+        <div class="col-xs-6 col-md-8 col-lg-10 col-centered movie-title text-center">
+            <h2>{movie_title}</h2>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div><img src="{poster_image_url}" alt="Poster of {movie_title}" class="poster"></div>
+        <div class="rating-overlay">{rating_img}</div>
+    </div>
+    <div class="row row-movie-facts">
+        <div class="col-xs-6 col-md-8 col-lg-10 col-centered"><span class="key">Released:</span> {movie_released}</div>
+        <div class="col-xs-6 col-md-8 col-lg-10 col-centered"><span class="key">Director:</span> {movie_director}</div>
+        <div class="col-xs-6 col-md-8 col-lg-10 col-centered movie-plot" title="{movie_plot}"><span class="key">Plot:</span> {movie_plot_limited}</div>
+        <div class="col-xs-6 col-md-8 col-lg-10 col-centered"><span class="key">IMDb:</span> {movie_imdb_rating}/10 <span style="font-weight:bold">Metascore:</span> {movie_metascore}/100</div>
+    </div><hr>
 </div>
 '''
+
+def create_rating_img_content(movie):
+    # http://en.wikipedia.org/wiki/Motion_Picture_Association_of_America_film_rating_system
+    if movie.omdb['Rated'] in movie.VALID_RATINGS:
+        return '<img src="{source}" alt="Rated {rating}">'.format(source=movie.get_rating_symbol(),rating=movie.omdb['Rated'])
+    else:
+        return ''
 
 def create_movie_tiles_content(movies):
     # The HTML content for this section of the page
@@ -137,8 +198,16 @@ def create_movie_tiles_content(movies):
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
+            trailer_youtube_id=trailer_youtube_id,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            rating_img = create_rating_img_content(movie),
+            movie_released = movie.get_release_date(),
+            movie_director = movie.omdb['Director'],
+            movie_plot=movie.omdb['Plot'],
+            movie_plot_limited=movie.limit_plot(21),
+            movie_imdb_rating = movie.omdb['imdbRating'],
+            movie_imdb_votes = movie.omdb['imdbVotes'],
+            movie_metascore = movie.omdb['Metascore']
         )
     return content
 
