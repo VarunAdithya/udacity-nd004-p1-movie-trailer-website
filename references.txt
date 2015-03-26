@@ -1,0 +1,18 @@
+These are the references I've used for the project.
+
+* For help on Python I've used these pages from the documentation:
+  https://docs.python.org/2.7/library/json.html
+  https://docs.python.org/2.7/library/re.html
+  https://docs.python.org/2.7/library/urllib2.html
+  https://docs.python.org/2.7/library/datetime.html
+
+* For help on CSS I've used these websites:
+  http://getbootstrap.com/css/
+  https://css-tricks.com/
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+
+* Open Movie Database API for all additional movie information:
+  http://www.omdbapi.com/
+
+* The symbols for MPAA movie ratings have been downloaded from Wikipedia:
+  http://en.wikipedia.org/wiki/Motion_Picture_Association_of_America_film_rating_system
