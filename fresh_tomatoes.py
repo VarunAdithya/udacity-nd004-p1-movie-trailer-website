@@ -4,6 +4,8 @@ import re
 
 # Styles and scripting for the page
 main_page_head = '''
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Fresh Tomatoes!</title>
@@ -95,7 +97,7 @@ main_page_head = '''
             padding: 15px 0 15px;
         }
     </style>
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript">
         // Pause the video when the modal is closed
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
             // Remove the src so the player itself gets removed, as this is the only
@@ -125,8 +127,6 @@ main_page_head = '''
 
 # The main page layout and title bar
 main_page_content = '''
-<!DOCTYPE html>
-<html lang="en">
   <body>
     <!-- Trailer Video Modal -->
     <div class="modal" id="trailer">
