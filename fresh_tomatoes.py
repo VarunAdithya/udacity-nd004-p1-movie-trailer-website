@@ -16,9 +16,10 @@ main_page_head = '''
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
+        /* Outline to help with alignment etc.
         * {
             outline: 1px solid red !important;
-        }
+        }*/
         body {
             padding-top: 80px;
         }
