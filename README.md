@@ -15,6 +15,7 @@ A list of websites, books, forums, blog posts, Github repositories etcetera that
 
 ## Fresh Tomatoes Movie Trailers
 This code is based on the Python module called [fresh_tomatoes.py](https://s3.amazonaws.com/udacity-hosted-downloads/ud036/fresh_tomatoes.py) provided in Udacity's course about [Programming Foundations with Python](https://www.udacity.com/course/ud036). There are several things I've added to (or modified in) this module:
+
 1. The movie-tiles now all have similar height, resulting in rows filled with movie-tiles starting from the left. This has been achieved by making sure the title will be rendered on a single line (with an ellipsis if needed), and reserving 4 lines of space for the plot (and limit its word-count if needed)
 2. Each movie-tile has a block with additional information from the [Open Movie Database](http://www.omdb.com/): release date, director, plot, rating on [IMDb](http://www.imdb.com/) and metascore on [Metacritic](http://www.metacritic.com/)
 3. For every movie with an [MPAA film rating](http://en.wikipedia.org/wiki/Motion_Picture_Association_of_America_film_rating_system) (in OMDb), the rating symbol is rendered as an overlay on the movie-poster. Assets for the rating symbols have been downloaded from Wikipedia
