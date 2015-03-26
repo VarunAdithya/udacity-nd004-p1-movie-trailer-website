@@ -1,6 +1,6 @@
 # udacity-nd004-p1-movie-trailer-website
 
-This code is the result I achieved for ***[Udacity Full Stack Web Developer Nanodegree](https://www.udacity.com/course/nd004) - Project 1: Movie Trailer Website***.
+This code is the result I achieved for ***[Udacity Full Stack Web Developer Nanodegree](https://www.udacity.com/course/nd004) - Project 1: Movie Trailer Website***. Instructions on how to run the application can be found at the bottom of this README text.
 
 This code has been *reviewed by me*. According to me, based on the rubric used by the Udacity reviewer, this code:
 - [x] Exceeds Specifications: Student includes additional information about their favorite movies (actors, release date, etc) or personalizes their page with additional HTML or CSS features.
@@ -11,7 +11,7 @@ This code has been *reviewed by me*. According to me, based on the rubric used b
 - [x] Exceeds Specifications: Comments are thorough and concise. Code is self documenting.
 - [x] Meets Specifications: A README file is included. README file includes details of all the steps required to successfully run the application.
 
-A list of websites, books, forums, blog posts, Github repositories etcetera that I have referred to or used in this submission can be found in the [references.txt](https://github.com/swesterveld/udacity-nd004-p1-movie-trailer-website/references.txt) file.
+A list of websites, books, forums, blog posts, Github repositories etcetera that I have referred to or used in this submission can be found in the [references.txt](https://github.com/swesterveld/udacity-nd004-p1-movie-trailer-website/blob/master/references.txt) file.
 
 ## Fresh Tomatoes Movie Trailers
 This code is based on the Python module called [fresh_tomatoes.py](https://s3.amazonaws.com/udacity-hosted-downloads/ud036/fresh_tomatoes.py) provided in Udacity's course about [Programming Foundations with Python](https://www.udacity.com/course/ud036). There are several things I've added to (or modified in) this module:
