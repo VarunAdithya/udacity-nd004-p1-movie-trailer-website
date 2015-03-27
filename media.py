@@ -52,12 +52,14 @@ class OMDbMovie(Movie):
         self.imdb_url = imdb_url
         self.query_omdb(self.imdb_id)
 
-        Movie.__init__(self, self.omdb['Title'], self.omdb['Poster'], youtube_trailer, imdb_url)
+        Movie.__init__(self, self.omdb['Title'], self.omdb['Poster'],
+                youtube_trailer, imdb_url)
 
     def get_imdb_id(self, url):
         '''
         Extract IMDb ID from the URL provided
-        For a URL like http://www.imdb.com/title/tt1375666/ it should return tt1375666
+        For a URL like http://www.imdb.com/title/tt1375666/ it should return
+        tt1375666
         '''
         # Looking for a string of 2 t-charachters, follwed by 7 digits.
         pattern = re.compile(r'tt[0-9]{7}')
@@ -81,7 +83,8 @@ class OMDbMovie(Movie):
 
         # Return a string with normal date notation, based on the year,
         # month and day we've extracted from the date given by OMDb.
-        return datetime.datetime.strptime(self.omdb['Released'], fmt).strftime('%B %d, %Y')
+        return datetime.datetime.strptime(self.omdb['Released'], fmt).strftime(
+                '%B %d, %Y')
 
     def query_omdb(self, iid):
         '''Get OMDb info about movie, based on IMDb ID.'''
